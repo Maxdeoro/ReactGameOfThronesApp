@@ -1,0 +1,14 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    outline: none;
+}
+
+body {
+    background: url(img/th-2757287776.jpg) center center no-repeat;
+    overflow-x: hidden;
+    background-size: cover;
+    font-size: 16px;
+    height: 100%;
+}
