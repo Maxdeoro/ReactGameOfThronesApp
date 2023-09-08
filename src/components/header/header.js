@@ -9,8 +9,9 @@ const HeaderBlock = styled.div`
 `;
 
 const HeaderTitle = styled.h3`
-    font-size: 24px;
-    color: #fff;
+    font-size: 27px;
+    font-weight: bold;
+    color: # 974ee0;
     margin: 0;
 `;
 

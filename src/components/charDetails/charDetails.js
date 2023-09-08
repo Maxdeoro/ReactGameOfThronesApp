@@ -23,6 +23,10 @@ export default class CharDetails extends Component {
                         <span className='term'>Culture</span>
                         <span>First</span>
                     </li>
+                    <li className="list-group-item d-flex justify-content-between">
+                        <span className='term'>Titles</span>
+                        <span>King of North</span>
+                    </li>
                 </ul>
             </div>
         );
