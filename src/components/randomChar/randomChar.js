@@ -30,16 +30,20 @@ export default class RandomChar extends Component {
     };
 
     render() {
-        const {char:{name,gender,born,died,culture,titles}, loading} = this.state;
+        // const {char:{name,gender,born,died,culture,titles}, loading} = this.state;
+        const {char,loading} = this.state;
 
-        if(loading) {
-            return <Spinner/>;
-        }
+        const content = loading ? <Spinner/> : <View char={char}/>;
+
+        // if(loading) {
+        //     return <Spinner/>;
+        // }
 
         return (
             <div className='random-block rounded'>
-                <h4>Random Character: {name}</h4>
-                <ul className="list-group list-group-flush">
+                {content}
+                {/* <h4>Random Character: {name}</h4> */}
+                {/* <ul className="list-group list-group-flush">
                     <li className="list-group-item d-flex justify-content-between">
                         <span className='term'>Gender</span>
                         <span>{gender}</span>
@@ -60,8 +64,39 @@ export default class RandomChar extends Component {
                         <span className='term'>Titles</span>
                         <span>{titles}</span>
                     </li>
-                </ul>
+                </ul> */}
             </div>
         );
     }
+};
+
+const View = ({char}) => {
+    const {name,gender,born,died,culture,titles} = char;
+    return (
+        <>
+        <h4>Random character: {name}</h4>
+        <ul className="list-group list-group-flush">
+        <li className="list-group-item d-flex justify-content-between">
+            <span className='term'>Gender</span>
+            <span>{gender}</span>
+        </li>
+        <li className="list-group-item d-flex justify-content-between">
+            <span className='term'>Born</span>
+            <span>{born}</span>
+        </li>
+        <li className="list-group-item d-flex justify-content-between">
+            <span className='term'>Died</span>
+            <span>{died}</span>
+        </li>
+        <li className="list-group-item d-flex justify-content-between">
+            <span className='term'>Culture</span>
+            <span>{culture}</span>
+        </li>
+        <li className="list-group-item d-flex justify-content-between">
+            <span className='term'>Titles</span>
+            <span>{titles}</span>
+        </li>
+    </ul>
+    </>
+    );
 };
