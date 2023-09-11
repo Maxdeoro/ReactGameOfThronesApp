@@ -3,7 +3,12 @@ import React from 'react';
 import './errorMessage.css';
 
 const ErrorMessage = () => {
-    return <span className='err'>Somthing goes wrong !</span>
+    return (
+        <>
+            <img alt='error' className="errorPic" src={process.env.PUBLIC_URL+'img/error.jpg'}></img>
+            <span className="err">Something happens wrong!</span>
+        </>
+    );
 };
 
 export default ErrorMessage;

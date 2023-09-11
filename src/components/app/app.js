@@ -10,11 +10,10 @@ import CharacterPage from '../characterPage';
 import styled from 'styled-components';
 
 class App extends Component {
-    // const gotService = new GotService();
-    // console.log(gotService.getAllHouses());
+
     state = {
         showRandomChar: true,
-        selectedChar: 150,
+        selectedChar: 139,
         error: false,
     };
 
@@ -31,6 +30,13 @@ class App extends Component {
             };
         })
     };
+
+    // onCharSelected = (id) => {
+    //     this.setState({
+    //         selectedChar: id,
+    //     })
+    // };
+
     render () {
         const {showRandomChar,selectedChar,error} = this.state;
 
@@ -43,7 +49,7 @@ class App extends Component {
         padding: 17px 14px;
         background-color: #c49411;
         border: 2px solid #111111;
-        border-radius: 4px;
+        border-radius: 5px;
         `;
 
         if(error) {
@@ -62,14 +68,24 @@ class App extends Component {
                     <Col lg={{size: 5, offset: 0}}>
                        {/* <RandomChar/> */}
                        {char}
+                       <Button onClick={this.toggleRandomChar}>
+                        Toggle random character
+                        </Button>
+                       {/* <button className='toggle-btn' 
+                               onClick={this.toggleRandomChar}>
+                                Toggle random character
+                        </button> */}
                     </Col>
                 </Row>
-                <Row>
-                    <Button>
-                        Toggle Random Character
-                    </Button>
-                </Row>
                 <CharacterPage/>
+                {/* <Row>
+                    <Col md='6'>
+                        <ItemList onCharSelected={this.onCharSelected}/>
+                    </Col>
+                    <Col md='6'>
+                        <CharDetails charId={this.state.selectedChar}/>
+                    </Col>
+                </Row> */}
             </Container>
             </>
         );
