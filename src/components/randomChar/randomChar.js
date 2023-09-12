@@ -11,7 +11,6 @@ export default class RandomChar extends Component {
     state = {
         char: {},
         loading: true,
-        error: false,
     };
 
     componentDidMount() {
@@ -45,7 +44,7 @@ export default class RandomChar extends Component {
     };
 
     render() {
-        // const {char:{name,gender,born,died,culture,titles}, loading} = this.state;
+
         const {char,loading,error} = this.state;
 
         const content = !(loading || error) ? <View char={char}/> : null;
