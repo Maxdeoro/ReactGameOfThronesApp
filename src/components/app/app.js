@@ -6,7 +6,7 @@ import ItemList from '../itemList';
 // import CharDetails from '../charDetails';
 import GotService from '../../services/gotService';
 import ErrorMessage from '../errorMessage';
-import CharacterPage from '../characterPage';
+import {CharacterPage,BooksPage,HousesPage} from '../pages';
 import ItemDetails from '../itemDetails';
 import styled from 'styled-components';
 
@@ -35,9 +35,9 @@ class App extends Component {
     render () {
         const {showRandomChar,selectedItem,error} = this.state;
 
-        if(this.state.error) {
-            return <ErrorMessage/>;
-        }
+        // if(this.state.error) {
+        //     return <ErrorMessage/>;
+        // }
 
         const Button = styled.button`
         margin-bottom: 40px;
@@ -64,13 +64,13 @@ class App extends Component {
                        {char}
                     </Col>
                 </Row>
-                       <Button onClick={this.toggleRandomChar}>
-                        Toggle random character
-                        </Button>
+                <Button onClick={this.toggleRandomChar}>
+                      Toggle random character
+                </Button>
                 <CharacterPage/>
                 <Row>
                     <Col md='6'>
-                        <ItemList onCharSelected={this.onCharSelected} 
+                        <ItemList onItemSelected={this.onItemSelected} 
                                   getData={this.gotService.getAllBooks} 
                                   renderItem={(item) => item.name}/>
                     </Col>
@@ -80,7 +80,7 @@ class App extends Component {
                 </Row>
                 <Row>
                     <Col md='6'>
-                        <ItemList onCharSelected={this.onCharSelected} 
+                        <ItemList onItemSelected={this.onItemSelected} 
                                   getData={this.gotService.getAllHouses} 
                                   renderItem={(item) => item.name}/>
                     </Col>
