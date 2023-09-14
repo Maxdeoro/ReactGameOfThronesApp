@@ -37,7 +37,8 @@ export default class BooksPage extends Component {
                                 renderItem={({name}) => name}
                             />);
 
-        const bookDetails = (<ItemDetails itemId={selectedBook}>
+        const bookDetails = (<ItemDetails itemId={selectedBook} 
+                                          getData={this.gotService.getBook}>
                                 <Field field='numberOfPages' label='Number of pages'/>
                                 <Field field='publisher' label='Publisher'/> 
                                 <Field field='released' label='Released'/>

@@ -25,33 +25,36 @@ state = {
 };
 
 componentDidMount() {
-    this.updateChar();
+    // this.updateChar();
+    this.updateItem();
 };
 
 componentDidUpdate(prevProps) {
     if(this.props.itemId !== prevProps.itemId) {
-        this.updateChar();
+        // this.updateChar();
+        this.updateItem();
     }
 };
 
-onCharLoaded(item) {
+onItemLoaded(item) {
     this.setState({
         item,
         loading: false,
     })
 };
 
-updateChar() {
-    const {itemId} = this.props;
+updateItem() {
+    const {itemId,getData} = this.props;
     if(!itemId) {
         return;
     }
     this.setState({
         loading: true,
     });
-    this.gotService.getCharacter(itemId)
-        .then(this.onCharLoaded)
-        .catch(() => this.onError());
+    // this.gotService.getCharacter(itemId)
+    //     .then(this.onItemLoaded)
+    //     .catch(() => this.onError());
+    getData(itemId).then(this.onItemLoaded);
 };
 
 onError() {

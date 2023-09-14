@@ -34,11 +34,12 @@ export default class HousesPage extends Component {
         }
 
         const itemList = (<ItemList onItemSelected={this.onItemSelected} 
-                        getData={this.gotService.getAllBooks} 
+                        getData={this.gotService.getAllHouses} 
                         renderItem={({name}) => name}
                         />);
 
-        const houseDetails = (<ItemDetails itemId={selectedHouse}>
+        const houseDetails = (<ItemDetails itemId={selectedHouse} 
+                              getData={this.gotService.getHouse}>
                                 <Field field='region' label='Region'/>
                                 <Field field='words' label='Words'/>
                                 <Field field='titles' label='Titles'/> 
