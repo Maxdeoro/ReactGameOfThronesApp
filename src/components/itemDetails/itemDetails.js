@@ -36,7 +36,7 @@ componentDidUpdate(prevProps) {
     }
 };
 
-onItemLoaded(item) {
+onItemLoaded = (item) => {
     this.setState({
         item,
         loading: false,
