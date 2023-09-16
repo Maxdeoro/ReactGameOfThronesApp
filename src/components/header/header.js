@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
 const HeaderBlock = styled.div`
@@ -29,22 +30,24 @@ const HeaderLinks = styled.ul`
 
 const Header = () => {
     return (
-        <HeaderBlock>
-            <HeaderTitle>
-                <a href='#'>Game of Thrones DB</a>
-            </HeaderTitle>
-            <HeaderLinks>
-                <li>
-                    <a href='#'>CHARACTERS</a>
-                </li>
-                <li>
-                    <a href='#'>HOUSES</a>
-                </li>
-                <li>
-                    <a href='#'>BOOKS</a>
-                </li>
-            </HeaderLinks>
-        </HeaderBlock>
+        <div>
+             <HeaderBlock>
+                <HeaderTitle>
+                    <Link to='/'>Game of Thrones DB</Link>
+                </HeaderTitle>
+                <HeaderLinks>
+                    <li>
+                        <Link to='/characters'>CHARACTERS</Link>
+                    </li>
+                    <li>
+                        <Link to='/houses'>HOUSES</Link>
+                    </li>
+                    <li>
+                        <Link to='/books'>BOOKS</Link>
+                    </li>
+                </HeaderLinks>
+            </HeaderBlock>
+        </div>
     );
 };
 

@@ -2,12 +2,10 @@ import React,{Component} from 'react';
 import {Col,Row,Container} from 'reactstrap';
 import Header from '../header';
 import RandomChar from '../randomChar';
-// import ItemList from '../itemList';
-// import CharDetails from '../charDetails';
-import GotService from '../../services/gotService';
+// import GotService from '../../services/gotService';
 import ErrorMessage from '../errorMessage';
 import {CharacterPage,BooksPage,HousesPage} from '../pages';
-// import ItemDetails from '../itemDetails';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 import styled from 'styled-components';
 
 class App extends Component {
@@ -50,24 +48,26 @@ class App extends Component {
         const char = showRandomChar ? <RandomChar/> : null;
 
         return (
-            <>
-            <Container>
-                <Header/>
-            </Container>
-            <Container>
-                <Row>
-                    <Col lg={{size: 5, offset: 0}}>
-                       {char}
-                    </Col>
-                </Row>
-                <Button onClick={this.toggleRandomChar}>
-                      Toggle random character
-                </Button>
-                <CharacterPage/>
-                <HousesPage/>
-                <BooksPage/>
-            </Container>
-            </>
+            <Router>
+                <div className='app'>
+                <Container>
+                    <Header/>
+                </Container>
+                <Container>
+                    <Row>
+                        <Col lg={{size: 5, offset: 0}}>
+                        {char}
+                        </Col>
+                    </Row>
+                    <Button onClick={this.toggleRandomChar}>
+                        Toggle random character
+                    </Button>
+                    <Route path='/characters' component={CharacterPage}/>
+                    <Route path='/houses' component={HousesPage}/>
+                    <Route path='/books' component={BooksPage}/>
+                </Container>
+                </div>
+            </Router>
         );
      }
 };

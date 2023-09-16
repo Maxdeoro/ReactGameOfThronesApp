@@ -1,7 +1,5 @@
 import React,{Component} from 'react';
-import {Col,Row,Container} from 'reactstrap';
 import ItemList from '../itemList';
-// import CharDetails from '../charDetails';
 import ErrorMessage from '../errorMessage';
 import GotService from '../../services/gotService';
 import ItemDetails,{Field} from '../itemDetails';
