@@ -20,7 +20,8 @@ const HeaderLinks = styled.ul`
     display: flex;
     margin: 0;
     align-items: center;
-    color: #fff;
+    // color: #fff;
+    color: #c96f02;
     list-style-type: none;
     li {
         margin-right: 20px;
@@ -37,13 +38,13 @@ const Header = () => {
                 </HeaderTitle>
                 <HeaderLinks>
                     <li>
-                        <Link to='/characters'>CHARACTERS</Link>
+                        <Link to='/characters/'>CHARACTERS</Link>
                     </li>
                     <li>
-                        <Link to='/houses'>HOUSES</Link>
+                        <Link to='/houses/'>HOUSES</Link>
                     </li>
                     <li>
-                        <Link to='/books'>BOOKS</Link>
+                        <Link to='/books/'>BOOKS</Link>
                     </li>
                 </HeaderLinks>
             </HeaderBlock>

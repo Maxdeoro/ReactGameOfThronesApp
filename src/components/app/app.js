@@ -2,13 +2,16 @@ import React,{Component} from 'react';
 import {Col,Row,Container} from 'reactstrap';
 import Header from '../header';
 import RandomChar from '../randomChar';
-// import GotService from '../../services/gotService';
+import GotService from '../../services/gotService';
 import ErrorMessage from '../errorMessage';
-import {CharacterPage,BooksPage,HousesPage} from '../pages';
+import {CharacterPage,BooksPage,HousesPage,BooksItem} from '../pages';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import styled from 'styled-components';
+import './app.css';
 
 class App extends Component {
+
+    gotService = new GotService();
 
     state = {
         showRandomChar: true,
@@ -31,7 +34,7 @@ class App extends Component {
     };
 
     render () {
-        const {showRandomChar,selectedItem,error} = this.state;
+        const {showRandomChar,error} = this.state;
 
         const Button = styled.button`
         margin-bottom: 40px;
@@ -55,16 +58,19 @@ class App extends Component {
                 </Container>
                 <Container>
                     <Row>
-                        <Col lg={{size: 5, offset: 0}}>
-                        {char}
-                        </Col>
+                        <Col lg={{size: 5, offset: 0}}>{char}</Col>
                     </Row>
                     <Button onClick={this.toggleRandomChar}>
                         Toggle random character
                     </Button>
+                    <Route path='/' exact component={() => <h1>Welcome to DB Game of Thrones</h1>}/>
                     <Route path='/characters' component={CharacterPage}/>
                     <Route path='/houses' component={HousesPage}/>
-                    <Route path='/books' component={BooksPage}/>
+                    <Route path='/books'  exact component={BooksPage}/>
+                    <Route path='/books/:id' render={({match}) => {
+                        const {id} = match.params;
+                        return <BooksItem bookId={id}/>;
+                    }}/>
                 </Container>
                 </div>
             </Router>

@@ -1,0 +1,7 @@
+.app {
+    overflow-x: hidden;
+    background: url('./th-2757287776.jpg') center center no-repeat;
+    background-size: cover;
+    font-size: 16px;
+    min-height: 100vh;
+}
