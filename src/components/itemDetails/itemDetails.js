@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import GotService from '../../services/gotService';
 import Spinner from '../spinner';
 import ErrorMessage from '../errorMessage';
+import styled from 'styled-components';
 import './itemDetails.css';
 
 const Field = ({item,field,label}) =>{
@@ -14,6 +15,13 @@ const Field = ({item,field,label}) =>{
 };
 
 export {Field};
+
+const CharName = styled.h3`
+    font-size: 27px;
+    font-weight: bold;
+    color: #07000f;
+    margin: 0;
+`;
 
 export default class ItemDetais extends Component {
     gotService = new GotService();
@@ -64,6 +72,12 @@ onError() {
     })
 };
 
+// const CharName = styled.h4`
+// margin-bottom: 20px;
+// text-align: center;
+// color: #c76b44;
+// `;
+
 render() {
     const {item,loading,error} = this.state;
 
@@ -85,7 +99,8 @@ render() {
 
     return (
         <div className='char-detais rounded'>
-            <h4>{name}</h4>
+            {/* <h4>{name}</h4> */}
+            <CharName>{name}</CharName>
             <ul className='list-group list-group-flush'>
                 {
                     React.Children.map(this.props.children, (child) => {

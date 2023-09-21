@@ -4,10 +4,11 @@
     margin-bottom: 40px;
 }
 
-.char-details h4 {
+/* .char-details h4 {
     margin-bottom: 20px;
     text-align: center;
-}
+    color:darkorange;
+} */
 
 @keyframes blinker {
     50% {
