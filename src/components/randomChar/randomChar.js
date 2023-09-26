@@ -1,9 +1,9 @@
 import React,{Component} from 'react';
-import './randomChar.css';
 import GotService from '../../services/gotService';
 import Spinner from '../spinner';
 import ErrorMessage from '../errorMessage';
 import PropTypes from 'prop-types';
+import './randomChar.css';
 
 export default class RandomChar extends Component {
 
