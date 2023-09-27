@@ -1,16 +1,17 @@
 
 import * as React from 'react';
-import {render,screen} from '@testing-library/react';
+// import {render,screen} from '@testing-library/react';
+import renderer from 'react-test-renderer';
 
 import RandomChar from './randomChar';
 
 //JEST
-// describe('Testing<RandomChar/>', () => {
-//     it ('RandomChar have rendered correctly', () => {
-//         const char = renderer.create(<RandomChar/>).toJSON(); 
-//         expect(char).toMatchSnapshot();
-//     })
-// })
+describe('Testing<RandomChar/>', () => {
+    it ('RandomChar have rendered correctly', () => {
+        const char = renderer.create(<RandomChar/>).toJSON(); 
+        expect(char).toMatchSnapshot();
+    })
+})
 
 // it('RandomChar have rendered correctly', () => {
 //     const component = renderer.create(<RandomChar/>);
@@ -21,11 +22,11 @@ import RandomChar from './randomChar';
 
 //@testing-library/react
 
-describe('RandomChar', () => {
-    it('RandomChar have rendered correctly', () => {
-        render(<RandomChar/>);
+// describe('RandomChar', () => {
+//     it('RandomChar have rendered correctly', () => {
+//         render(<RandomChar/>);
 
-        // expect(screen.queryByText('momondo')).toBeNull();
+//         // expect(screen.queryByText('momondo')).toBeNull();
         
-    })
-});
+//     })
+// });
